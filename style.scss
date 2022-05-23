@@ -1,0 +1,235 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  position: relative;
+}
+
+.dark {
+  background-color: #091921;
+}
+.light {
+  background-color: #ececf3;
+  .clock {
+    border: 3px solid #ececf3;
+    box-shadow: 0 -15px 15px #fff, inset 0 -15px 15px #fff, 0 15px 15px #dbdbeb,
+      inset 0 15px 15px #dbdbeb;
+    &::before {
+      border-color: #ececf3;
+    }
+  }
+
+  .hour {
+    .hr {
+      &::before {
+        background-color: #4f4f64 !important;
+      }
+    }
+  }
+  .min {
+    .mn {
+      &::before {
+        background-color: #4f4f64 !important;
+      }
+    }
+  }
+
+  .label {
+    background-color: #ececf3 !important;
+
+    box-shadow: 0 -5px 5px #fff, inset 0 -5px 5px #fff, 0 5px 5px #dbdbeb,
+      inset 0 5px 5px #dbdbeb !important;
+  }
+  .time {
+    color: #12123b;
+  }
+  .date {
+    color: #696972;
+  }
+}
+
+.analogDigital {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  #checkbox {
+    opacity: 0;
+  }
+  #checkbox:checked ~ i {
+    opacity: 0;
+  }
+
+  .label {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10%;
+    right: -20%;
+    background-color: #091921;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: 0 -5px 5px rgba(255, 255, 255, 0.05),
+      inset 0 -5px 5px rgba(255, 255, 255, 0.05), 0 5px 5px rgba(0, 0, 0, 0.3),
+      inset 0 5px 5px rgba(0, 0, 0, 0.3);
+    i {
+      color: purple;
+    }
+  }
+}
+.clock {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #091921;
+  border-radius: 50%;
+  box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+    inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+    inset 0 15px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 4px solid #091921;
+    background: purple;
+    border-radius: 50%;
+    z-index: 100000;
+  }
+  .hour,
+  .min,
+  .sec {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hour {
+    .hr {
+      width: 150px;
+      height: 150px;
+
+      position: absolute;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0.375em;
+        height: 5rem;
+        background-color: white;
+        z-index: 10;
+        border-radius: 6px 6px 0 0;
+      }
+    }
+  }
+  .min {
+    .mn {
+      width: 190px;
+      height: 190px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0.188rem;
+        height: 5.625rem;
+        background-color: white;
+        z-index: 10;
+        border-radius: 6px 6px 0 0;
+      }
+    }
+  }
+  .sec {
+    .sc {
+      width: 220px;
+      height: 220px;
+
+      &::before {
+        content: "";
+
+        width: 0.125rem;
+        height: 8.125rem;
+        background-color: purple;
+        z-index: 10;
+        border-radius: 6px 6px 0 0;
+      }
+    }
+  }
+  .hr,
+  .mn,
+  .sc {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    border-radius: 50%;
+  }
+  .number {
+    --rotate: 0;
+    position: absolute;
+    width: 1px;
+    height: 20px;
+
+    background-color: grey;
+    font-weight: bold;
+    text-align: center;
+  }
+  .number1 {
+    top: 1%;
+    left: 49%;
+  }
+  .number2 {
+    bottom: 1%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+  .number3 {
+    top: 46%;
+    left: 4%;
+    transform: rotate(90deg);
+  }
+  .number4 {
+    top: 46%;
+    right: 4%;
+    transform: rotate(90deg);
+  }
+}
+.digital {
+  padding-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  .time {
+    display: flex;
+
+    justify-content: center;
+    span {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .ampm {
+      font-size: 1rem;
+      font-weight: bold;
+    }
+  }
+  .date {
+    span {
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  }
+}
